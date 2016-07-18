@@ -1,0 +1,11 @@
+
+	<%= link_to "Students", students_path%> ||
+
+	<%if teacher_signed_in?%>
+		<%= link_to "New Student", new_student_path%> ||
+		<%= link_to "Log out", destroy_teacher_session_path, method: :delete %> 
+	<%else%>
+		<%= link_to "Log in", new_teacher_session_path%> ||
+		<%= link_to "New Teacher Account", new_teacher_registration_path%>
+	<%end%>
+	

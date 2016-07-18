@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Listing Students</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th width = 100px>Name</th>
+      <th width = 100px>Age</th>
+      <th width = 100px>Roll number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td align= "center"><%= student.age %></td>
+        <td align= "center"><%= student.roll_number %></td>
+        <%if teacher_signed_in?%>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
